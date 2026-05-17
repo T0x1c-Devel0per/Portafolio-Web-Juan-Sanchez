@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import contactRoutes from './routes/contact.routes.js';
@@ -12,6 +13,8 @@ import { env } from './config/env.js';
 const app = express();
 const appDir = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.resolve(appDir, '../../dist');
+const distIndexPath = path.join(distDir, 'index.html');
+const hasBuiltFrontend = fs.existsSync(distIndexPath);
 
 app.use(
   helmet({
@@ -45,7 +48,7 @@ app.get('/api/health', (_request, response) => {
 
 app.use('/api/contact', requireAllowedOrigin, contactRoutes);
 
-if (env.nodeEnv === 'production') {
+if (hasBuiltFrontend) {
   app.use(express.static(distDir));
   app.get('*', (request, response, next) => {
     if (request.path.startsWith('/api')) {
@@ -53,7 +56,7 @@ if (env.nodeEnv === 'production') {
       return;
     }
 
-    response.sendFile(path.join(distDir, 'index.html'));
+    response.sendFile(distIndexPath);
   });
 }
 
