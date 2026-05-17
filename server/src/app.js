@@ -22,11 +22,13 @@ app.use(
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'", 'https://challenges.cloudflare.com'],
+        scriptSrcElem: ["'self'", 'https://challenges.cloudflare.com'],
         frameSrc: ["'self'", 'https://challenges.cloudflare.com'],
-        styleSrc: ["'self'", "'unsafe-inline'"],
+        styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+        styleSrcElem: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
         imgSrc: ["'self'", 'data:', 'blob:'],
         connectSrc: ["'self'", 'https://challenges.cloudflare.com'],
-        fontSrc: ["'self'", 'data:']
+        fontSrc: ["'self'", 'data:', 'https://fonts.gstatic.com']
       }
     }
   })
