@@ -4,7 +4,7 @@ import { useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { skillClusters } from '@services/portfolioData.js';
 
-const NODE_COUNT = 42;
+const NODE_COUNT = 30;
 const SKILL_LABELS = skillClusters.flatMap((cluster) =>
   cluster.techs.map(([tech, context]) => ({
     tech,
@@ -73,7 +73,7 @@ function PolyNetwork() {
 
     mousePoint.set(pointer.x * 2.4, pointer.y * 1.7, 0);
 
-    groupRef.current.position.x = THREE.MathUtils.lerp(groupRef.current.position.x, 2.45 + pointer.x * 0.28, 0.055);
+    groupRef.current.position.x = THREE.MathUtils.lerp(groupRef.current.position.x, 2.75 + pointer.x * 0.24, 0.055);
     groupRef.current.position.y = THREE.MathUtils.lerp(groupRef.current.position.y, pointer.y * 0.18, 0.055);
     groupRef.current.rotation.y += clampedDelta * (0.14 + scroll * 0.25);
     groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, pointer.y * 0.18 + scroll * 0.18, 0.055);
@@ -92,9 +92,9 @@ function PolyNetwork() {
       );
 
       const distanceToMouse = liveNode.distanceTo(mousePoint);
-      if (distanceToMouse < 1.65) {
-        const force = (1.65 - distanceToMouse) / 1.65;
-        liveNode.lerp(mousePoint, force * 0.12);
+      if (distanceToMouse < 1.45) {
+        const force = (1.45 - distanceToMouse) / 1.45;
+        liveNode.lerp(mousePoint, force * 0.09);
       }
 
       if (!mesh) return;
@@ -122,12 +122,12 @@ function PolyNetwork() {
   });
 
   return (
-    <group ref={groupRef} position={[2.45, 0, 0]} scale={0.92}>
+    <group ref={groupRef} position={[2.75, 0, 0]} scale={0.84}>
       <lineSegments ref={lineRef}>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" array={linePositions} count={linePositions.length / 3} itemSize={3} />
         </bufferGeometry>
-        <lineBasicMaterial color="#00ff87" transparent opacity={0.28} blending={THREE.AdditiveBlending} />
+        <lineBasicMaterial color="#00ff87" transparent opacity={0.16} blending={THREE.AdditiveBlending} />
       </lineSegments>
 
       {baseNodes.map((node, index) => (
@@ -143,11 +143,11 @@ function PolyNetwork() {
           }}
           onPointerOut={() => setHovered(null)}
         >
-          <sphereGeometry args={[hovered === index ? 0.09 : 0.048, 18, 18]} />
+          <sphereGeometry args={[hovered === index ? 0.082 : 0.043, 18, 18]} />
           <meshStandardMaterial
             color={hovered === index ? '#f0f0f0' : '#00ff87'}
             emissive="#00ff87"
-            emissiveIntensity={hovered === index ? 1.45 : 0.58}
+            emissiveIntensity={hovered === index ? 1.15 : 0.45}
             roughness={0.3}
           />
           {hovered === index && (

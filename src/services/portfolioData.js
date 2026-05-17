@@ -8,110 +8,113 @@ export const owner = {
 };
 
 export const heroSignals = [
-  ['Full Stack', 'Frontend, backend, bases de datos y despliegue.'],
-  ['IA aplicada', 'Automatización y asistentes útiles para operación.'],
-  ['Bogotá -> global', 'Trabajo remoto o híbrido con estándares de equipo.']
+  ['+5 años en industria', 'Trayectoria continua construyendo soluciones de software en distintos contextos.'],
+  ['1 año certificado', 'Experiencia laboral certificada aplicando estas capacidades en entornos reales.'],
+  ['Stack completo', 'React/Vite + Node.js + datos + despliegue Linux en un solo flujo.'],
+  ['IA aplicada', 'Automatizaciones y asistentes orientados a operaciones reales, no a demo.']
 ];
 
 export const aboutActs = [
   {
     label: 'Acto 01',
-    title: 'Aprendió rompiendo cosas, no memorizando slides.',
+    title: 'Aprendió construyendo, iterando y corrigiendo en entorno real.',
     body:
-      'Juan Pablo empezó como empiezan los perfiles realmente curiosos: probando, fallando, volviendo a levantar el servidor y entendiendo qué pasó. Después formalizó ese camino con certificaciones Full Stack de la Universidad Nacional de Colombia y Frontend de la Universidad de Antioquia.'
+      'Juan Pablo empezó como autodidacta: resolviendo problemas concretos con código, despliegues y pruebas reales. Lleva más de 5 años en la industria y luego formalizó esa base con certificaciones Full Stack en la Universidad Nacional de Colombia y Frontend en la Universidad de Antioquia.'
   },
   {
     label: 'Acto 02',
-    title: 'Hoy conecta producto, backend e infraestructura.',
+    title: 'Hoy conecta producto, backend, datos e infraestructura.',
     body:
-      'Construye frontends en React, APIs en Node.js, bases de datos relacionales y no relacionales, despliegues en Ubuntu, módulos para Odoo 18 SaaS y flujos donde la IA responde con voz, texto o automatizaciones útiles.'
+      'Construye interfaces en React, servicios backend en Node.js, diseña APIs REST y trabaja con MySQL y MongoDB. También administra despliegues en Ubuntu, seguridad de endpoints y desarrollos en Odoo 18 SaaS.'
   },
   {
     label: 'Acto 03',
-    title: 'La tecnología tiene que aliviar carga humana.',
+    title: 'Su foco es impacto operativo, no complejidad innecesaria.',
     body:
-      'Su brújula no es usar la herramienta más brillante, sino la que resuelve el problema con menos fricción. Vive en Bogotá, trabaja con estándares globales y defiende una IA que acompaña a las personas, no que las borra del mapa.'
+      'Tiene 1 año de experiencia laboral certificada en estas áreas y aplica IA para simplificar procesos y reducir fricción en equipos. Trabaja desde Bogotá con estándares globales.'
   }
 ];
 
 export const profileFacts = [
   ['Ubicación', 'Bogotá D.C., Colombia'],
+  ['Trayectoria', 'Más de 5 años en la industria de software'],
+  ['Experiencia certificada', '1 año de experiencia laboral certificada'],
   ['Formación', 'Full Stack UNAL · Frontend UdeA'],
   ['Enfoque', 'React, Node.js, Linux, APIs e IA'],
-  ['Perfil', 'Autodidacta certificado, orientado a producto']
+  ['Perfil', 'Autodidacta certificado, mentalidad de producto']
 ];
 
 export const projects = [
   {
     name: 'Asistente IA de Voz y Texto',
     stack: ['React', 'Node.js', 'Webhooks', 'IA aplicada'],
-    problem:
-      'Automatiza respuestas operativas con conversación natural, manteniendo contexto entre voz, texto y acciones externas.',
+    problem: 'Atender consultas repetitivas sin saturar al equipo operativo.',
+    solution: 'Asistente con voz y texto conectado por webhooks para responder y ejecutar acciones con contexto.',
     url: '#contacto',
-    accent: 'IA',
-    outcome: 'Demuestra criterio para integrar IA a flujos reales de negocio.'
+    accent: 'IA aplicada',
+    outcome: 'Reduce tiempos de respuesta y demuestra IA integrada a procesos reales.'
   },
   {
     name: 'API Gateway para Apps Node.js',
     stack: ['Node.js', 'Ubuntu', 'SSL', 'Rate limiting'],
-    problem:
-      'Centraliza endpoints, certificados y protección contra fuerza bruta, DDoS y tráfico sospechoso antes de tocar la app.',
+    problem: 'Exposición de endpoints y configuraciones dispersas en producción.',
+    solution: 'Gateway centralizado con SSL, control de tráfico y políticas de seguridad antes del backend.',
     url: '#contacto',
-    accent: 'Infra',
-    outcome: 'Muestra dominio de despliegue, seguridad y operación backend.'
+    accent: 'Infraestructura',
+    outcome: 'Mejora estabilidad operativa y reduce superficie de ataque.'
   },
   {
     name: 'Módulo Operativo en Odoo 18 SaaS',
     stack: ['Odoo 18', 'Python', 'ERP', 'Automatizaciones'],
-    problem:
-      'Convierte procesos manuales en flujos trazables dentro del ERP, con reglas de negocio claras y menos doble digitación.',
+    problem: 'Procesos internos con doble digitación y poca trazabilidad.',
+    solution: 'Módulo con reglas de negocio y automatizaciones para centralizar el flujo en Odoo.',
     url: '#contacto',
     accent: 'ERP',
-    outcome: 'Evidencia capacidad para entender procesos internos y ERP.'
+    outcome: 'Aumenta control operativo y reduce errores manuales.'
   },
   {
     name: 'Dashboard Producto Full Stack',
     stack: ['Vite', 'React', 'MySQL', 'MongoDB'],
-    problem:
-      'Une indicadores de producto y datos transaccionales en una interfaz rápida, legible y lista para tomar decisiones.',
+    problem: 'Datos de producto dispersos, difíciles de leer en tiempo de decisión.',
+    solution: 'Dashboard full stack que integra datos transaccionales y eventos en una sola vista accionable.',
     url: '#contacto',
-    accent: 'Full',
-    outcome: 'Refuerza experiencia construyendo producto de punta a punta.'
+    accent: 'Producto',
+    outcome: 'Acelera decisiones con información clara y centralizada.'
   }
 ];
 
 export const skillClusters = [
   {
     name: 'Producto',
-    context: 'Interfaces, APIs y decisiones que sí le importan al usuario.',
+    context: 'Diseño y construcción de producto usable con arquitectura mantenible.',
     techs: [
-      ['React/Vite', 'Frontend rápido, modular y mantenible.'],
-      ['Node.js', 'Backends claros para productos reales.'],
-      ['APIs REST', 'Diseño, construcción e integración de servicios.'],
-      ['MySQL', 'Datos relacionales para operaciones consistentes.'],
-      ['MongoDB', 'Modelos flexibles para productos que cambian.']
+      ['React/Vite', 'Interfaces rápidas y modulares enfocadas en experiencia de uso.'],
+      ['Node.js', 'Servicios backend listos para evolucionar con el producto.'],
+      ['APIs REST', 'Contratos claros para conectar frontend, backend y terceros.'],
+      ['MySQL', 'Modelo relacional para consistencia y operaciones críticas.'],
+      ['MongoDB', 'Modelo documental para flujos flexibles y iteración rápida.']
     ]
   },
   {
     name: 'Infraestructura',
-    context: 'Servidores, despliegues y seguridad para que la app no viva en modo demo.',
+    context: 'Operación en servidor y seguridad para sostener producto en producción.',
     techs: [
-      ['Ubuntu Linux', 'Administración y despliegue de apps Node.js.'],
-      ['SSL', 'Certificados y tráfico seguro en producción.'],
-      ['DDoS / Brute force', 'Capas de protección antes del backend.'],
-      ['SQL Injection', 'Validación y defensa de endpoints críticos.'],
-      ['Odoo 18 SaaS', 'Configuración y módulos sobre procesos ERP.']
+      ['Ubuntu Linux', 'Despliegue y administración estable de aplicaciones Node.js.'],
+      ['SSL', 'Cifrado de tráfico para proteger información en tránsito.'],
+      ['DDoS / Brute force', 'Mitigación de abuso antes de impactar la aplicación.'],
+      ['SQL Injection', 'Defensa en validación y endpoints sensibles.'],
+      ['Odoo 18 SaaS', 'Configuración y extensión ERP alineada a procesos reales.']
     ]
   },
   {
     name: 'IA & Automatización',
-    context: 'IA aplicada a tareas concretas, no a humo de laboratorio.',
+    context: 'Automatizaciones e IA aterrizadas a productividad operativa.',
     techs: [
-      ['Chatbots voz/texto', 'Asistentes que conversan y ejecutan.'],
-      ['Webhooks', 'Eventos que conectan herramientas sin fricción.'],
-      ['Orquestación', 'Flujos automáticos con intención de producto.'],
-      ['Claude Code', 'Desarrollo asistido con criterio técnico.'],
-      ['Cursor / Copilot', 'Velocidad sin soltar revisión humana.']
+      ['Chatbots voz/texto', 'Asistentes para soporte y tareas frecuentes de operación.'],
+      ['Webhooks', 'Integración por eventos entre plataformas y procesos internos.'],
+      ['Orquestación', 'Secuencias automáticas con control de reglas y estados.'],
+      ['Claude Code', 'Aceleración de desarrollo con revisión técnica humana.'],
+      ['Cursor / Copilot', 'Mayor velocidad de entrega sin perder calidad de código.']
     ]
   }
 ];

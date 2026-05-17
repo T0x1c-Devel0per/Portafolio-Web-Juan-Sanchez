@@ -162,7 +162,7 @@ function validateClientForm({ name, email, message, company }, captchaToken) {
   if (name.trim().length < 2) return 'Escribe un nombre valido.';
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return 'Escribe un email valido.';
   if (message.trim().length < 10) return 'El mensaje debe tener al menos 10 caracteres.';
-  if (!turnstileSiteKey) return 'Falta VITE_TURNSTILE_SITE_KEY.';
+  if (!turnstileSiteKey || turnstileSiteKey.includes('TU_SITE_KEY')) return 'Falta VITE_TURNSTILE_SITE_KEY.';
   if (!captchaToken) return 'Completa el captcha antes de enviar.';
   return '';
 }

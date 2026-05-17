@@ -4,7 +4,8 @@ import { skillClusters } from '@services/portfolioData.js';
 
 export default function Skills() {
   return (
-    <Section id="skills" eyebrow="Mapa técnico" title="Tres mundos conectados en una misma cabeza.">
+    <Section id="skills" eyebrow="Mapa técnico" title="Capacidades agrupadas por impacto en producto, operación e IA.">
+      <p className="skills-hint">Tip: pasa el cursor por cada tecnologia para ver en que contexto se usa.</p>
       <div className="clusters-grid">
         {skillClusters.map((cluster, clusterIndex) => (
           <motion.article

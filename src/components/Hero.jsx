@@ -32,7 +32,7 @@ export default function Hero() {
         </motion.p>
         <motion.div className="availability-pill" variants={heroItem} transition={{ duration: 0.42, ease: 'easeOut' }}>
           <span />
-          Abierto a oportunidades Full Stack, Frontend e IA aplicada.
+          Disponible para procesos con empresas, startups y equipos de producto.
         </motion.div>
         <motion.h1 variants={heroItem} transition={{ duration: 0.52, ease: 'easeOut' }}>
           {owner.name}
@@ -41,20 +41,20 @@ export default function Hero() {
           {owner.tagline}
         </motion.p>
         <motion.p className="hero-text" variants={heroItem} transition={{ duration: 0.42, ease: 'easeOut' }}>
-          Perfil técnico con base práctica: construye interfaces, APIs, bases de datos, despliegues Linux y soluciones
-          con IA aplicada. Empírico por elección, certificado para formalizar lo aprendido haciendo.
+          Construye y mantiene producto end-to-end: frontend, backend, datos e infraestructura. Integra IA cuando aporta
+          velocidad operativa y una mejor experiencia de uso.
         </motion.p>
         <motion.div className="hero-actions" variants={heroItem} transition={{ duration: 0.42, ease: 'easeOut' }}>
           <a className="button button-primary magnetic" href="#proyectos">
-            Ver experiencia <ArrowDownRight size={18} />
+            Ver proyectos <ArrowDownRight size={18} />
           </a>
           <a className="button button-ghost magnetic" href="#contacto">
-            Contactar <MessageCircle size={18} />
+            Hablemos <MessageCircle size={18} />
           </a>
         </motion.div>
         <motion.p className="network-hint" variants={heroItem} transition={{ duration: 0.42, ease: 'easeOut' }}>
           <MousePointer2 size={14} />
-          Pasa el cursor por la red para revisar habilidades técnicas.
+          Pasa el cursor por la red para explorar habilidades clave.
         </motion.p>
         <motion.div className="hero-signals" variants={heroItem} transition={{ duration: 0.42, ease: 'easeOut' }}>
           {heroSignals.map(([metric, text]) => (

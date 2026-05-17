@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useMouseTilt } from '@hooks/useMouseTilt.js';
 
 export default function ProjectCard({ project }) {
-  const tilt = useMouseTilt(10);
+  const tilt = useMouseTilt(8);
 
   return (
     <motion.article
@@ -22,9 +22,16 @@ export default function ProjectCard({ project }) {
         </a>
       </div>
       <h3>{project.name}</h3>
-      <p>{project.problem}</p>
+      <div className="project-flow">
+        <p>
+          <strong>Problema:</strong> {project.problem}
+        </p>
+        <p>
+          <strong>Solucion:</strong> {project.solution}
+        </p>
+      </div>
       <div className="project-outcome">
-        <span>Señal para empresas</span>
+        <span>Resultado</span>
         <strong>{project.outcome}</strong>
       </div>
       <ul>
