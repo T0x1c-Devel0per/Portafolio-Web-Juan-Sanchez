@@ -1,5 +1,5 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Environment, Html } from '@react-three/drei';
+import { Html } from '@react-three/drei';
 import { useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { skillClusters } from '@services/portfolioData.js';
@@ -173,8 +173,8 @@ export default function NetworkScene() {
       <ambientLight intensity={0.92} />
       <pointLight position={[3, 3, 4]} intensity={1.9} color="#00ff87" />
       <pointLight position={[-4, -2, 3]} intensity={0.7} color="#f0f0f0" />
+      <hemisphereLight args={['#a9ffe1', '#0a0a0a', 0.38]} />
       <PolyNetwork />
-      <Environment preset="city" />
     </Canvas>
   );
 }
