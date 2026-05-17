@@ -815,6 +815,12 @@ h1 {
   border-color: var(--emerald);
 }
 
+.captcha-wrap {
+  display: flex;
+  justify-content: flex-start;
+  min-height: 68px;
+}
+
 .contact-aside {
   align-self: center;
 }
@@ -838,6 +844,16 @@ h1 {
 .form-note.error {
   margin: 0;
   color: #ff8f8f;
+}
+
+.form-note.success {
+  margin: 0;
+  border: 1px solid rgba(0, 255, 135, 0.34);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: rgba(0, 255, 135, 0.09);
+  color: #baffde;
+  animation: success-pop 240ms ease;
 }
 
 .mobile-node-field {
@@ -942,6 +958,17 @@ h1 {
   50% {
     transform: translate3d(18px, -28px, 0);
     opacity: 0.9;
+  }
+}
+
+@keyframes success-pop {
+  from {
+    transform: translate3d(0, 6px, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
   }
 }
 

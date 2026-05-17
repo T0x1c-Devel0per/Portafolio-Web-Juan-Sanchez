@@ -5,6 +5,7 @@ export function validateContactPayload(body) {
   const email = normalizeText(body?.email);
   const message = normalizeText(body?.message);
   const company = normalizeText(body?.company);
+  const captchaToken = normalizeText(body?.captchaToken);
   const startedAt = Number(body?.startedAt);
   const elapsedMs = Date.now() - startedAt;
 
@@ -28,7 +29,11 @@ export function validateContactPayload(body) {
     throwValidationError('El mensaje debe tener entre 10 y 1500 caracteres.');
   }
 
-  return { name, email, message };
+  if (!captchaToken || captchaToken.length < 10) {
+    throwValidationError('Completa el captcha para continuar.');
+  }
+
+  return { name, email, message, captchaToken };
 }
 
 function normalizeText(value) {

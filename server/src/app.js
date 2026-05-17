@@ -13,7 +13,21 @@ const app = express();
 const appDir = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.resolve(appDir, '../../dist');
 
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", 'https://challenges.cloudflare.com'],
+        frameSrc: ["'self'", 'https://challenges.cloudflare.com'],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        imgSrc: ["'self'", 'data:', 'blob:'],
+        connectSrc: ["'self'", 'https://challenges.cloudflare.com'],
+        fontSrc: ["'self'", 'data:']
+      }
+    }
+  })
+);
 app.use(
   cors({
     origin: env.clientOrigin || true,

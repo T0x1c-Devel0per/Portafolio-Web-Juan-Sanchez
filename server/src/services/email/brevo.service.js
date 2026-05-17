@@ -2,8 +2,17 @@ import { env } from '../../config/env.js';
 
 const BREVO_SEND_EMAIL_URL = 'https://api.brevo.com/v3/smtp/email';
 
-export async function sendBrevoEmail({ subject, htmlContent, textContent, replyTo }) {
+export async function sendBrevoEmail({ subject, htmlContent, textContent, replyTo, to }) {
   ensureBrevoConfig();
+
+  const recipients = to?.length
+    ? to
+    : [
+        {
+          name: env.brevo.toName,
+          email: env.brevo.toEmail
+        }
+      ];
 
   const response = await fetch(BREVO_SEND_EMAIL_URL, {
     method: 'POST',
@@ -17,12 +26,7 @@ export async function sendBrevoEmail({ subject, htmlContent, textContent, replyT
         name: env.brevo.senderName,
         email: env.brevo.senderEmail
       },
-      to: [
-        {
-          name: env.brevo.toName,
-          email: env.brevo.toEmail
-        }
-      ],
+      to: recipients,
       replyTo,
       subject,
       htmlContent,
