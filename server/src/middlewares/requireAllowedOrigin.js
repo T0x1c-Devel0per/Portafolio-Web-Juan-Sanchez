@@ -2,13 +2,24 @@ import { env } from '../config/env.js';
 
 export function requireAllowedOrigin(request, _response, next) {
   const origin = request.get('origin');
+  const allowedOrigins = parseAllowedOrigins(env.clientOrigin);
 
-  if (!env.clientOrigin) {
+  if (!allowedOrigins.length) {
     next();
     return;
   }
 
-  if (!origin || origin === env.clientOrigin) {
+  // Navegaciones same-origin o herramientas server-to-server pueden no enviar Origin.
+  if (!origin) {
+    next();
+    return;
+  }
+
+  const normalizedOrigin = normalizeOrigin(origin);
+  const isAllowedByEnv = allowedOrigins.includes(normalizedOrigin);
+  const isSameOriginRequest = normalizedOrigin === getRequestOrigin(request);
+
+  if (isAllowedByEnv || isSameOriginRequest) {
     next();
     return;
   }
@@ -16,4 +27,22 @@ export function requireAllowedOrigin(request, _response, next) {
   const error = new Error('Origen no permitido.');
   error.statusCode = 403;
   next(error);
+}
+
+function parseAllowedOrigins(value) {
+  return String(value || '')
+    .split(',')
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .map(normalizeOrigin);
+}
+
+function normalizeOrigin(value) {
+  return String(value).trim().replace(/\/+$/, '').toLowerCase();
+}
+
+function getRequestOrigin(request) {
+  const proto = (request.get('x-forwarded-proto') || request.protocol || 'http').split(',')[0].trim();
+  const host = (request.get('x-forwarded-host') || request.get('host') || '').split(',')[0].trim().toLowerCase();
+  return normalizeOrigin(`${proto}://${host}`);
 }

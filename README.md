@@ -81,6 +81,10 @@ railway up
 
 En producción, el backend sirve el frontend compilado (`dist`) y también expone `/api/*`.
 
+Nota de CORS/origin:
+- `CLIENT_ORIGIN` acepta una o varias URLs separadas por coma.
+- Ejemplo: `CLIENT_ORIGIN=https://app.up.railway.app,https://www.tudominio.com`
+
 5. Genera build de producción:
 
 ```bash
