@@ -1,14 +1,18 @@
 import { owner, experienceItems, educationItems } from '@services/portfolioData.js';
 import { Mail, Phone, MapPin, Globe } from 'lucide-react';
+import avatar from '@assets/avatar-jp.png';
 
 export default function PrintableCV() {
   return (
     <div className="printable-cv" aria-hidden="true">
       {/* Header */}
       <header className="cv-header">
-        <div className="cv-header-title">
-          <h1>{owner.name}</h1>
-          <h2>{owner.role}</h2>
+        <div className="cv-header-left">
+          <img src={avatar} alt={owner.name} className="cv-avatar" />
+          <div className="cv-header-title">
+            <h1>{owner.name}</h1>
+            <h2>{owner.role}</h2>
+          </div>
         </div>
         <div className="cv-header-contact">
           <div><Phone size={13} /> {owner.phone}</div>
