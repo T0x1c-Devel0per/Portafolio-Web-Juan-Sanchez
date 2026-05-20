@@ -28,7 +28,7 @@ export default function Hero() {
         }}
       >
         <motion.p className="hero-kicker" variants={heroItem} transition={{ duration: 0.42, ease: 'easeOut' }}>
-          Bogotá / sistemas conectados / IA práctica
+          Madrid, Cundinamarca / aplicaciones web / bases de datos
         </motion.p>
         <motion.div className="availability-pill" variants={heroItem} transition={{ duration: 0.42, ease: 'easeOut' }}>
           <span />
@@ -41,8 +41,8 @@ export default function Hero() {
           {owner.tagline}
         </motion.p>
         <motion.p className="hero-text" variants={heroItem} transition={{ duration: 0.42, ease: 'easeOut' }}>
-          Construye y mantiene producto end-to-end: frontend, backend, datos e infraestructura. Integra IA cuando aporta
-          velocidad operativa y una mejor experiencia de uso.
+          Construye y mantiene aplicaciones web: interfaces, backend, bases de datos y APIs REST. También aporta en
+          gestión de software, soporte técnico y mejora continua de procesos.
         </motion.p>
         <motion.div className="hero-actions" variants={heroItem} transition={{ duration: 0.42, ease: 'easeOut' }}>
           <a className="button button-primary magnetic" href="#proyectos">

@@ -5,7 +5,7 @@ import { aboutActs, profileFacts } from '@services/portfolioData.js';
 
 export default function About() {
   return (
-    <Section id="historia" eyebrow="Historia corta" title="Empírico por elección. Preciso por oficio.">
+    <Section id="historia" eyebrow="Perfil profesional" title="Programador full stack con enfoque práctico.">
       <div className="about-grid">
         <motion.div
           className="avatar-panel glass-card"
@@ -16,9 +16,9 @@ export default function About() {
         >
           <img src={avatar} alt="Avatar ilustrado de Juan Pablo Sánchez Rodríguez" loading="lazy" />
           <div className="portrait-meta">
-            <span>Juan Pablo / Bogotá D.C.</span>
-            <strong>Desarrollador full stack con mentalidad de producto y operación.</strong>
-            <p>Puede aportar en frontend, backend, infraestructura Linux, ERP e IA aplicada dentro de equipos técnicos.</p>
+            <span>Juan Pablo / Madrid, Cundinamarca</span>
+            <strong>Programador full stack para aplicaciones web, datos y soporte tecnológico.</strong>
+            <p>Puede aportar en frontend, backend, bases de datos, APIs REST, gestión de software y soporte técnico.</p>
           </div>
         </motion.div>
 

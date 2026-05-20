@@ -3,8 +3,10 @@ import { useActiveSection } from '@hooks/useActiveSection.js';
 
 const nav = [
   ['Historia', 'historia'],
+  ['Trayectoria', 'trayectoria'],
   ['Proyectos', 'proyectos'],
   ['Skills', 'skills'],
+  ['Chat', 'asistente'],
   ['Contacto', 'contacto']
 ];
 const sectionIds = ['inicio', ...nav.map(([, id]) => id)];

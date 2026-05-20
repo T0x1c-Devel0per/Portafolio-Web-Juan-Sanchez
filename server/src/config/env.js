@@ -9,6 +9,10 @@ export const env = {
     toEmail: process.env.SENDER_EMAIL ?? '',
     toName: process.env.BREVO_TO_NAME ?? 'Juan Pablo'
   },
+  openai: {
+    apiKey: process.env.OPEN_IA_API_KEY ?? process.env.OPENAI_API_KEY ?? '',
+    model: process.env.OPENAI_MODEL ?? 'gpt-4o-mini'
+  },
   turnstile: {
     secretKey: process.env.TURNSTILE_SECRET_KEY ?? ''
   },

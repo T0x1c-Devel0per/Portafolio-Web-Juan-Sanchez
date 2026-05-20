@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 
 const sectionTitles = {
-  inicio: 'Juan Pablo Sánchez Rodríguez | Full Stack Developer',
-  historia: 'Historia | Juan Pablo Sánchez Rodríguez',
-  proyectos: 'Proyectos | IA, APIs e Infraestructura',
-  skills: 'Skills | Producto, Infraestructura e IA',
+  inicio: 'Juan Pablo Sánchez Rodríguez | Programador Full Stack',
+  historia: 'Perfil | Juan Pablo Sánchez Rodríguez',
+  trayectoria: 'Trayectoria | Formación y experiencia',
+  proyectos: 'Proyectos | Aplicaciones web y datos',
+  skills: 'Skills | Frontend, backend y bases de datos',
+  asistente: 'Asistente CV | Pregúntale al chatbot',
   contacto: 'Contacto | Hablemos'
 };
 

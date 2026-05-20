@@ -42,6 +42,7 @@ copy server\.env.example server\.env
 
 ```env
 VITE_CONTACT_ENDPOINT=
+VITE_CHAT_ENDPOINT=/api/chat
 VITE_GITHUB_URL=https://github.com/tu-usuario
 VITE_LINKEDIN_URL=https://linkedin.com/in/tu-usuario
 ```
@@ -74,6 +75,8 @@ railway link
 `BREVO_SENDER_NAME=Juan Pablo Sánchez Rodríguez`
 `BREVO_TO_NAME=Juan Pablo Sánchez Rodríguez`
 `CLIENT_ORIGIN=https://<tu-dominio-railway>`
+`OPEN_IA_API_KEY=...`
+`OPENAI_MODEL=gpt-4.1-mini`
 3. Despliega:
 ```bash
 railway up
@@ -94,6 +97,7 @@ npm run build
 ## Variables de entorno
 
 - `VITE_CONTACT_ENDPOINT`: endpoint del formulario. En desarrollo puede ser `/api/contact` porque Vite proxya hacia el backend.
+- `VITE_CHAT_ENDPOINT`: endpoint del asistente CV. En desarrollo puede ser `/api/chat`.
 - `VITE_GITHUB_URL`: URL pública de GitHub.
 - `VITE_LINKEDIN_URL`: URL pública de LinkedIn.
 - `PORT`: puerto del backend.
@@ -102,6 +106,8 @@ npm run build
 - `BREVO_SENDER_NAME`: nombre del remitente.
 - `SENDER_EMAIL`: email verificado en Brevo que envía y recibe los mensajes del formulario. El email escrito por el usuario se usa como `replyTo`.
 - `BREVO_TO_NAME`: nombre del destinatario.
+- `OPEN_IA_API_KEY`: API key de OpenAI para el asistente del CV. También se acepta `OPENAI_API_KEY` como respaldo.
+- `OPENAI_MODEL`: modelo usado por el asistente. Valor por defecto: `gpt-4.1-mini`.
 
 ## Backend MVC
 
@@ -114,6 +120,8 @@ npm run build
 - `server/src/middlewares`: rate limit y manejo de errores.
 
 El formulario envía `POST /api/contact`. El backend carga variables desde `server/.env` y también desde `.env` raíz como respaldo. Usa la API transaccional de Brevo (`/v3/smtp/email`) con el header `api-key`, manteniendo la credencial fuera del frontend.
+
+El asistente del CV envía `POST /api/chat`. El backend usa la Responses API de OpenAI y una base de conocimiento local del perfil para responder sobre habilidades, formación, experiencia y disponibilidad sin exponer la API key al navegador.
 
 Seguridad aplicada al formulario:
 

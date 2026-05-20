@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Github, Linkedin, Send, CheckCircle2 } from 'lucide-react';
+import { Github, Globe2, Linkedin, Mail, Phone, Send, CheckCircle2 } from 'lucide-react';
 import Section from '@components/Section.jsx';
 import { owner } from '@services/portfolioData.js';
 import { sendContactMessage } from '@services/contactService.js';
@@ -44,6 +44,18 @@ export default function Contact() {
 
     if (window.turnstile) {
       renderWidget();
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    const existingScript = document.querySelector('script[src*="challenges.cloudflare.com"]');
+    if (existingScript) {
+      const prevOnload = existingScript.onload;
+      existingScript.onload = () => {
+        if (prevOnload) prevOnload();
+        renderWidget();
+      };
       return () => {
         cancelled = true;
       };
@@ -142,6 +154,18 @@ export default function Contact() {
             aplicada con responsabilidad tecnica.
           </p>
           <div className="social-stack">
+            <a className="social-link magnetic" href={`mailto:${owner.email}`}>
+              <Mail size={20} />
+              {owner.email}
+            </a>
+            <a className="social-link magnetic" href={`tel:${owner.phone.replaceAll(' ', '')}`}>
+              <Phone size={20} />
+              {owner.phone}
+            </a>
+            <a className="social-link magnetic" href={owner.portfolio} target="_blank" rel="noreferrer">
+              <Globe2 size={20} />
+              Portafolio web
+            </a>
             <a className="social-link magnetic" href={owner.github} target="_blank" rel="noreferrer">
               <Github size={20} />
               GitHub

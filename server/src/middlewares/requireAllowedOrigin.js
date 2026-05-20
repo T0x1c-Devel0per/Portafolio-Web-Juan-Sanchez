@@ -17,7 +17,17 @@ export function requireAllowedOrigin(request, _response, next) {
 
   const normalizedOrigin = normalizeOrigin(origin);
   const isAllowedByEnv = allowedOrigins.includes(normalizedOrigin);
-  const isSameOriginRequest = normalizedOrigin === getRequestOrigin(request);
+  const requestOrigin = getRequestOrigin(request);
+  const isSameOriginRequest = normalizedOrigin === requestOrigin;
+
+  console.log('--- requireAllowedOrigin ---');
+  console.log('Origin Header:', origin);
+  console.log('Normalized Origin:', normalizedOrigin);
+  console.log('Parsed env.clientOrigin:', allowedOrigins);
+  console.log('Request Origin (Calculated):', requestOrigin);
+  console.log('isAllowedByEnv:', isAllowedByEnv);
+  console.log('isSameOriginRequest:', isSameOriginRequest);
+  console.log('-----------------------------');
 
   if (isAllowedByEnv || isSameOriginRequest) {
     next();

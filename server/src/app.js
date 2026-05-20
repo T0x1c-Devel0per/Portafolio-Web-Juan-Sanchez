@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import chatRoutes from './routes/chat.routes.js';
 import contactRoutes from './routes/contact.routes.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { requireAllowedOrigin } from './middlewares/requireAllowedOrigin.js';
@@ -33,9 +34,13 @@ app.use(
     }
   })
 );
+const allowedOrigins = env.clientOrigin
+  ? env.clientOrigin.split(',').map((o) => o.trim()).filter(Boolean)
+  : [];
+
 app.use(
   cors({
-    origin: env.clientOrigin || true,
+    origin: allowedOrigins.length ? allowedOrigins : true,
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Accept'],
     maxAge: 600
@@ -49,6 +54,7 @@ app.get('/api/health', (_request, response) => {
 });
 
 app.use('/api/contact', requireAllowedOrigin, contactRoutes);
+app.use('/api/chat', requireAllowedOrigin, chatRoutes);
 
 if (hasBuiltFrontend) {
   app.use(express.static(distDir));
