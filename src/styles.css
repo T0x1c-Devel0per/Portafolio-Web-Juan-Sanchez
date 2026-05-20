@@ -1353,3 +1353,294 @@ h1 {
     scroll-behavior: auto !important;
   }
 }
+
+/* Download CV Button Styles */
+.download-cv-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: rgba(240, 240, 240, 0.72);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: color 160ms ease;
+  cursor: pointer;
+}
+
+.download-cv-btn:hover {
+  color: var(--emerald);
+}
+
+.download-cv-btn::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 1px;
+  content: "";
+  background: var(--emerald);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.download-cv-btn:hover::after {
+  transform: scaleX(1);
+}
+
+/* Print Styles for Professional CV */
+.printable-cv {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm 15mm;
+  }
+
+  /* Reset and Hide non-print elements */
+  body, html {
+    background: #0a0a0a !important;
+    color: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-family: "Space Grotesk", system-ui, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .site-header,
+  main,
+  .scroll-progress,
+  .custom-cursor,
+  .cursor-dot,
+  .cursor-halo,
+  canvas,
+  #canvas-container,
+  footer {
+    display: none !important;
+  }
+
+  .printable-cv {
+    display: block !important;
+    width: 100% !important;
+    min-height: 100% !important;
+    padding: 15px 10px !important;
+    box-sizing: border-box !important;
+    background: #0a0a0a !important;
+    color: #f0f0f0 !important;
+  }
+
+  .cv-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-bottom: 2px solid #00ff87 !important;
+    padding-bottom: 18px !important;
+    margin-bottom: 22px !important;
+  }
+
+  .cv-header-title h1 {
+    margin: 0 !important;
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  .cv-header-title h2 {
+    margin: 4px 0 0 !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    color: #00ff87 !important;
+    text-transform: uppercase !important;
+    font-family: "JetBrains Mono", monospace !important;
+    letter-spacing: 1px !important;
+  }
+
+  .cv-header-contact {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 5px !important;
+    font-family: "JetBrains Mono", monospace !important;
+    font-size: 0.78rem !important;
+    color: rgba(240, 240, 240, 0.85) !important;
+    text-align: right !important;
+  }
+
+  .cv-header-contact div {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+  }
+
+  .cv-header-contact svg {
+    color: #00ff87 !important;
+  }
+
+  .cv-grid {
+    display: grid !important;
+    grid-template-columns: 1.65fr 1fr !important;
+    gap: 28px !important;
+  }
+
+  .cv-col-left {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 22px !important;
+  }
+
+  .cv-col-right {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 22px !important;
+  }
+
+  .cv-section h3 {
+    margin: 0 0 12px 0 !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
+    letter-spacing: 1px !important;
+    border-bottom: 1px solid rgba(240, 240, 240, 0.15) !important;
+    padding-bottom: 5px !important;
+    position: relative !important;
+  }
+
+  .cv-section h3::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: -1px !important;
+    width: 45px !important;
+    height: 2px !important;
+    background: #00ff87 !important;
+  }
+
+  .cv-profile-text {
+    margin: 0 !important;
+    font-size: 0.84rem !important;
+    line-height: 1.55 !important;
+    color: rgba(240, 240, 240, 0.85) !important;
+    text-align: justify !important;
+  }
+
+  .cv-timeline {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  .cv-timeline-item {
+    position: relative !important;
+    padding-left: 15px !important;
+    border-left: 1.5px solid rgba(0, 255, 135, 0.3) !important;
+  }
+
+  .cv-timeline-item::before {
+    content: "" !important;
+    position: absolute !important;
+    left: -5px !important;
+    top: 4px !important;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #00ff87 !important;
+  }
+
+  .cv-timeline-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    margin-bottom: 3px !important;
+  }
+
+  .cv-timeline-header h4 {
+    margin: 0 !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+  }
+
+  .cv-timeline-date {
+    font-family: "JetBrains Mono", monospace !important;
+    font-size: 0.7rem !important;
+    color: #00ff87 !important;
+    font-weight: 600 !important;
+  }
+
+  .cv-timeline-company {
+    margin: 0 0 6px 0 !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    color: rgba(240, 240, 240, 0.65) !important;
+  }
+
+  .cv-timeline-desc {
+    margin: 0 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+    color: rgba(240, 240, 240, 0.78) !important;
+  }
+
+  .cv-skill-groups {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+
+  .cv-skill-group h4 {
+    margin: 0 0 6px 0 !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    color: #00ff87 !important;
+    text-transform: uppercase !important;
+    font-family: "JetBrains Mono", monospace !important;
+  }
+
+  .cv-skill-group ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 5px !important;
+  }
+
+  .cv-skill-group li {
+    font-size: 0.72rem !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(0, 255, 135, 0.2) !important;
+    color: rgba(240, 240, 240, 0.9) !important;
+    padding: 3px 6px !important;
+    border-radius: 4px !important;
+    font-family: "JetBrains Mono", monospace !important;
+  }
+
+  .cv-education {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .cv-education-item h4 {
+    margin: 0 0 2px 0 !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+  }
+
+  .cv-education-item p {
+    margin: 0 0 2px 0 !important;
+    font-size: 0.78rem !important;
+    color: rgba(240, 240, 240, 0.7) !important;
+  }
+
+  .cv-education-item span {
+    font-size: 0.72rem !important;
+    color: #a7a7a7 !important;
+  }
+}

@@ -26,6 +26,9 @@ export default function Header() {
             {label}
           </a>
         ))}
+        <button className="download-cv-btn" onClick={() => window.print()} title="Descargar CV en PDF">
+          Descargar PDF
+        </button>
       </nav>
     </header>
   );

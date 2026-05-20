@@ -7,6 +7,7 @@ import Projects from '@components/Projects.jsx';
 import Skills from '@components/Skills.jsx';
 import CvChat from '@components/CvChat.jsx';
 import Contact from '@components/Contact.jsx';
+import PrintableCV from '@components/PrintableCV.jsx';
 import ScrollProgress from '@components/ScrollProgress.jsx';
 import { useSectionTitle } from '@hooks/useSectionTitle.js';
 
@@ -27,6 +28,7 @@ export default function App() {
         <CvChat />
         <Contact />
       </main>
+      <PrintableCV />
     </>
   );
 }
