@@ -19,6 +19,7 @@ const hasBuiltFrontend = fs.existsSync(distIndexPath);
 
 app.use(
   helmet({
+    frameguard: false,
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
@@ -29,7 +30,8 @@ app.use(
         styleSrcElem: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
         imgSrc: ["'self'", 'data:', 'blob:'],
         connectSrc: ["'self'", 'https://challenges.cloudflare.com'],
-        fontSrc: ["'self'", 'data:', 'https://fonts.gstatic.com']
+        fontSrc: ["'self'", 'data:', 'https://fonts.gstatic.com'],
+        frameAncestors: ["*"]
       }
     }
   })
